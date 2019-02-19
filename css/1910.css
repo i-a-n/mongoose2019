@@ -185,10 +185,11 @@ a:active {
   }
 }
 .logo--gold {
-  background-image: url('../img/logo-gold--med.png');
+  background-image: url('../img/cocktail-gold.png');
 }
 .logo--white {
-  background-image: url('../img/logo-white--small.png');
+  background-image: url('../img/cocktail-white-small.png');
+  opacity: .8;
 }
 .logo--topRight {
   position: absolute;
