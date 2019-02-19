@@ -1,0 +1,7 @@
+Use LESS to build ./src/*.less -> ./1910.css
+
+#install less (lesscss.org)
+npm install -g less
+
+#build from the /css/ dir
+lessc src/*.less 1910.css
