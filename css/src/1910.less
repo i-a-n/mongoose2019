@@ -42,12 +42,12 @@ a, a:visited, a:active {
     height: 638px;
     background-color: #ccc;
     position: relative;
-    background-image: url('../img/1910-hero-compressor.jpg');
+    background-image: url('../img/mongoose-hero.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 
     @media @mobile-bp {
-        background-image: url('../img/1910-hero-mobile-compressor.jpg');
+        background-image: url('../img/mongoose-hero.jpg');
     }
 
     .copybox {
@@ -62,7 +62,7 @@ a, a:visited, a:active {
 
         @media @mobile-bp {
             max-width: 88%;
-            min-width: 450px;
+            // min-width: 450px;
         }
     }
     .copy {
@@ -79,7 +79,7 @@ a, a:visited, a:active {
 /* structure */
 .grid {
     padding: 30px 14px;
-    
+
     &:before, &:after {
     content: " ";
     display: table;
@@ -91,7 +91,7 @@ a, a:visited, a:active {
     margin: 0 auto;
 
     @media @mobile-bp {
-        width: 525px;
+        width: 90%;
     }
 }
 .section {
@@ -105,7 +105,7 @@ a, a:visited, a:active {
 }
 .spacer--vertical {
     height: 36px;
-    
+
     @media @mobile-bp {
         height: 0px;
     }
@@ -114,7 +114,7 @@ a, a:visited, a:active {
     width: 48%;
     display: inline;
     float: left;
-    
+
     @media @mobile-bp {
         width: 100%;
     }
@@ -164,6 +164,10 @@ a, a:visited, a:active {
 }
 .justify {
     text-align: justify;
+
+    @media @mobile-bp {
+      text-align: unset;
+    }
 }
 
 
@@ -188,10 +192,11 @@ a, a:visited, a:active {
     }
 }
 .logo--gold {
-    background-image: url('../img/logo-gold--med.png');
+    background-image: url('../img/cocktail-gold.png');
 }
 .logo--white {
-    background-image: url('../img/logo-white--small.png');
+    background-image: url('../img/cocktail-white-small.png');
+    opacity: .75;
 }
 .logo--topRight {
     position: absolute;

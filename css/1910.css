@@ -16,7 +16,7 @@ h5,
 .h5,
 .subtitle,
 p {
-  opacity: .96;
+  opacity: 0.96;
 }
 .h1,
 .h2,
@@ -59,7 +59,7 @@ a:active {
   color: #ffffff;
   max-width: 50%;
   text-align: center;
-  opacity: .965;
+  opacity: 0.965;
   box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.23);
   bottom: 26.6px;
   position: absolute;
@@ -67,7 +67,6 @@ a:active {
 @media only screen and (max-width: 969px) {
   .hero .copybox {
     max-width: 88%;
-    min-width: 450px;
   }
 }
 .hero .copy {
@@ -92,7 +91,7 @@ a:active {
 }
 @media only screen and (max-width: 969px) {
   .content {
-    width: 525px;
+    width: 90%;
   }
 }
 .section {
@@ -165,6 +164,11 @@ a:active {
 .justify {
   text-align: justify;
 }
+@media only screen and (max-width: 969px) {
+  .justify {
+    text-align: unset;
+  }
+}
 /* logos and images */
 .logo {
   background-repeat: no-repeat;
@@ -189,7 +193,7 @@ a:active {
 }
 .logo--white {
   background-image: url('../img/cocktail-white-small.png');
-  opacity: .8;
+  opacity: 0.75;
 }
 .logo--topRight {
   position: absolute;
@@ -217,7 +221,7 @@ a:active {
   font-family: 'playfair display';
   font-style: italic;
   box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
-  opacity: .96;
+  opacity: 0.96;
 }
 input[disabled] {
   color: #ccc;
@@ -227,7 +231,7 @@ input[disabled] {
 .cta {
   text-align: center;
   display: inline-block;
-  opacity: .96;
+  opacity: 0.96;
   cursor: default;
   position: relative;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.41);
