@@ -7,7 +7,7 @@
         <meta name="description" content="Project Mongoose">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic|Arbutus+Slab' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Pacifico:400,400italic|Arbutus+Slab' rel='stylesheet' type='text/css'>
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
@@ -24,9 +24,9 @@
                 <div class='logo  logo--small  logo--white  logo--topRight'> </div>
                 <div class="copybox">
                     <div class='copy'>
-                        <span class='typeface--secondary  h4  typeface--italic'>Codenamed</span>
-                        <span class='typeface--primary  h1'>Project Mongoose</span>
-                        <span class='typeface--secondary  h4  typeface--italic'>...it’s for the wedding</span>
+                        <span class='typeface--primary  h4  typeface--italic'>Codenamed</span>
+                        <span class='typeface--headline  h1'>Project Mongoose</span>
+                        <span class='typeface--primary  h4  typeface--italic'>...it’s for the wedding</span>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 <div class='logo  logo--gold  logo--center  logo--header'> </div>
                 <div class='grid'>
                     <div class="cell">
-                        <h3 class="h3  typeface--primary">Project Mongoose</h3>
+                        <h3 class="h3  typeface--headline">Project Mongoose</h3>
                         <p class="justify">
                             Word reached some in the organization recently that the club was “out of the running” to bring back Harper, per the report, though Ghiroli also cautions that there’s still nothing approaching certainty there. After all, Nats ownership and agent Scott Boras have a well-established knack for finding a way to line up on big contracts.
                         </p>
@@ -60,7 +60,7 @@
                 <div class='logo  logo--gold  logo--center  logo--header'> </div>
                 <div class='grid'>
                     <div class='cell'>
-                        <h3 class="withSubtitle  h3  typeface--primary">Date & Time</h3>
+                        <h3 class="withSubtitle  h3  typeface--headline">Date & Time</h3>
                         <span class="subtitle  typeface--secondary  typeface--italic">(Pacific Standard Time)</span>
                         <div class='spacer--vertical'>&nbsp;</div>
                         <p>
@@ -85,7 +85,7 @@
                 <div class='logo  logo--gold  logo--center  logo--header'> </div>
                 <div class='grid'>
                     <div class="cell">
-                        <h3 class="h3  typeface--primary">In a Giving Mood?</h3>
+                        <h3 class="h3  typeface--headline">In a Giving Mood?</h3>
                         <p class="justify">
                             Project Mongoose If the Braves are to repeat their 2018 division title, they’ll likely require significant contributions from some talented young players.
                         </p>
@@ -94,26 +94,46 @@
                         </p>
                     </div>
                     <div class="cell  cell--extraPadding">
-                        <form class="subscribeForm" id="emailForm">
-                            <div class="cta  cta--gold  cta--large" id="submitForm">
-                                <div class='ctaMessage  ctaMessage--1'>
-                                    See
-                                    <span class="typeface--secondary  typeface--small  typeface--italic">the</span>
-                                    Registry
-                                </div>
-                            </div>
-                        </form>
+                       <div class="messageDiv  messageDiv--hide">
+                           Email successfully added
+                       </div>
+                       <form class="subscribeForm" id="emailForm">
+                           <input class="textInput" type="email" maxlength="55" placeholder="email@example.com" id="emailInput" required>
+                           <div class="cta  cta--gold  cta--large" id="submitForm">
+                               <div class='ctaMessage  ctaMessage--1'>
+                                   Join
+                                   <span class="typeface--secondary  typeface--small  typeface--italic">the</span>
+                                   Mailing List
+                               </div>
+                               <div class='ctaMessage  ctaMessage--2 hidden'>
+                                   Confirming...
+                               </div>
+                           </div>
+                       </form>
                     </div>
                 </div>
             </div>
         </div>
 
+        <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "redacted",
+            authDomain: "mongoose-e2077.firebaseapp.com",
+            databaseURL: "https://mongoose-e2077.firebaseio.com/",
+            projectId: "mongoose-e2077",
+          };
+          firebase.initializeApp(config);
+        </script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
-        <script>
+        <!-- <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -121,7 +141,7 @@
 
             ga('create', 'UA-38381799-4', 'auto');
             ga('send', 'pageview');
-        </script>
+        </script> -->
 
     </body>
 </html>

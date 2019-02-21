@@ -8,7 +8,7 @@ $(document).ready( function() {
             $("form#emailForm").submit();
         }
         else {
-            $(".messageDiv").html("Please enter a valid email address").removeClass("messageDiv--hide"); 
+            $(".messageDiv").html("Please enter a valid email address").removeClass("messageDiv--hide");
         }
     });
 });
@@ -22,9 +22,10 @@ $("#emailForm").submit( function(e) {
     $(".messageDiv").addClass("messageDiv--hide");
     $(".ctaMessage--2").slideDown();
     $("input").prop("disabled","disabled");
-    
+
     // call function
-    addContact( "everyone@1910league.com", emailAddress );
+    //addContact( "everyone@1910league.com", emailAddress );
+    rsvp();
 });
 
 // general handler, extensible in case we do unsub later
@@ -37,10 +38,10 @@ function ajaxHandler(path,payload) {
         data: payload
     }).done(function(data) {
             deferredObject.resolve(data);
-    }).fail( function(a,b,c) { 
+    }).fail( function(a,b,c) {
         console.log(a+b+c);
         deferredObject.fail();
-    }).always(function() { 
+    }).always(function() {
         //nothing here for now
     });
     return deferredObject.promise();
@@ -60,3 +61,36 @@ function addContact(mailingList, address) {
             $("input").prop("disabled",false);
         });
 }
+
+function rsvp() {
+  var rsvpRef = firebase.database().ref();
+  var newRSVPRef = rsvpRef.push();
+  newRSVPRef.set({
+    'foo': 'bar',
+    'plusOne': false
+  })
+  .then(function() {
+    console.log('RSVP succeeded');
+    $(".ctaMessage--2").slideUp();
+    $(".messageDiv").html("Email successfully added").removeClass('messageDiv--hide');
+    $("input").prop("disabled",false).val('');
+  })
+  .catch(function(error) {
+    console.log('RSVP failed');
+    $(".ctaMessage--2").slideUp();
+    $(".messageDiv").html("Error, try again later").removeClass('messageDiv--hide');
+    $("input").prop("disabled",false);
+  });
+}
+/* var messageListRef = firebase.database().ref();
+var newMessageRef = messageListRef.push();
+newMessageRef.set({
+  'user_id': 'ada',
+  'text': 'The Analytical Engine weaves algebraical patterns just as the Jacquard loom weaves flowers and leaves.'
+})
+  .then(function() {
+    console.log('RSVP succeeded');
+  })
+  .catch(function(error) {
+    console.log('RSVP failed');
+  }); */

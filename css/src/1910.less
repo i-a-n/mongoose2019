@@ -12,6 +12,7 @@
 body {
     font-family: 'Arbutus Slab', serif;
     text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, .subtitle, p {
     opacity: .96;
@@ -23,7 +24,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, .subtitle, p {
     font-size: 22.4px;
 }
 .h3 {
-    font-size: 26.6px;
+    font-size: 34.6px;
 }
 .h1 {
     font-size: 35.7px;
@@ -42,12 +43,13 @@ a, a:visited, a:active {
     height: 638px;
     background-color: #ccc;
     position: relative;
-    background-image: url('../img/mongoose-hero.jpg');
+    background-image: url('../img/mongoose-hero2.jpg');
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
 
     @media @mobile-bp {
-        background-image: url('../img/mongoose-hero.jpg');
+        background-image: url('../img/mongoose-hero2.jpg');
     }
 
     .copybox {
@@ -121,11 +123,11 @@ a, a:visited, a:active {
 }
 .cell--extraPadding {
     margin-left: 4%;
-    padding-top: 37px;
+    padding-top: 64px;
 
     @media @mobile-bp {
         margin-left: 0;
-        padding-top: 17px;
+        padding-top: 37px;
     }
 }
 
@@ -145,6 +147,9 @@ a, a:visited, a:active {
 }
 .typeface--secondary {
     font-family: 'Playfair Display', serif;
+}
+.typeface--headline {
+    font-family: 'Pacifico', sans-serif;
 }
 .typeface--italic {
     font-style: italic;
