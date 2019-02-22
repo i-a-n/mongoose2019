@@ -1,96 +1,68 @@
 // click listener
 $(document).ready( function() {
+  if (localStorage.getItem('alreadyRSVPd')) {
+    $(".messageDiv").html("RSVP Received. See you there!").removeClass('messageDiv--hide');
+    $(".formFields").hide();
+  }
     $("#submitForm").click( function() {
         $(".messageDiv").addClass("messageDiv--hide");
 
         // check form (html5 only does validation if you hit enter on the form)
-        if( $("form#emailForm")[0].checkValidity() ) {
-            $("form#emailForm").submit();
+        if( $("form#rsvpForm")[0].checkValidity() ) {
+            $("form#rsvpForm").submit();
         }
         else {
-            $(".messageDiv").html("Please enter a valid email address").removeClass("messageDiv--hide");
+            $(".messageDiv").html("Please fill out all fields").removeClass("messageDiv--hide");
         }
     });
 });
 
 // submit action
-$("#emailForm").submit( function(e) {
+$("#rsvpForm").submit( function(e) {
     e.preventDefault();
-    var emailAddress = $("#emailInput").val();
+
+    var formData = $(this).serializeArray();
+    var returnArray = {};
+    for (var i = 0; i < formData.length; i++){
+      returnArray[formData[i]['name']] = formData[i]['value'];
+    }
 
     // show message within button and hide old status message, if any
     $(".messageDiv").addClass("messageDiv--hide");
-    $(".ctaMessage--2").slideDown();
+    $(".ctaMessage--2").show();
     $("input").prop("disabled","disabled");
 
     // call function
-    //addContact( "everyone@1910league.com", emailAddress );
-    rsvp();
+    rsvp(returnArray);
+    // dummy();
 });
 
-// general handler, extensible in case we do unsub later
-function ajaxHandler(path,payload) {
-    var deferredObject = $.Deferred();
-    $.ajax({
-        type: "GET",
-        dataType: 'json',
-        url: path,
-        data: payload
-    }).done(function(data) {
-            deferredObject.resolve(data);
-    }).fail( function(a,b,c) {
-        console.log(a+b+c);
-        deferredObject.fail();
-    }).always(function() {
-        //nothing here for now
-    });
-    return deferredObject.promise();
+function dummy() {
+  setTimeout(function() {
+    // $("#submitForm").hide();
+    // $(".ctaMessage--2").slideUp();
+    $(".messageDiv").html("RSVP Received. See you there!").removeClass('messageDiv--hide');
+    $(".formFields").slideUp();
+    localStorage.setItem('alreadyRSVPd', true);
+    // $("input").prop("disabled",false).val('');
+  }, 1200);
 }
 
-// contact adding
-function addContact(mailingList, address) {
-    ajaxHandler( "http://union.io/1910/mailgun-api.php", "action=add_member&list="+mailingList+"&address="+address )
-        .done( function() {
-            $(".ctaMessage--2").slideUp();
-            $(".messageDiv").html("Email successfully added").removeClass('messageDiv--hide');
-            $("input").prop("disabled",false).val('');
-        })
-        .fail( function() {
-            $(".ctaMessage--2").slideUp();
-            $(".messageDiv").html("Error, try again later").removeClass('messageDiv--hide');
-            $("input").prop("disabled",false);
-        });
-}
-
-function rsvp() {
+// rsvp adding
+function rsvp(formData) {
   var rsvpRef = firebase.database().ref();
   var newRSVPRef = rsvpRef.push();
-  newRSVPRef.set({
-    'foo': 'bar',
-    'plusOne': false
-  })
+  newRSVPRef.set(formData)
   .then(function() {
     console.log('RSVP succeeded');
-    $(".ctaMessage--2").slideUp();
-    $(".messageDiv").html("Email successfully added").removeClass('messageDiv--hide');
-    $("input").prop("disabled",false).val('');
+    $(".messageDiv").html("RSVP Received. See you there!").removeClass('messageDiv--hide');
+    $(".formFields").slideUp();
+    localStorage.setItem('alreadyRSVPd', true);
   })
   .catch(function(error) {
     console.log('RSVP failed');
     $(".ctaMessage--2").slideUp();
-    $(".messageDiv").html("Error, try again later").removeClass('messageDiv--hide');
+    $(".messageDiv").html("Error: Please try again, or email us.").removeClass('messageDiv--hide');
     $("input").prop("disabled",false);
   });
 }
-/* var messageListRef = firebase.database().ref();
-var newMessageRef = messageListRef.push();
-newMessageRef.set({
-  'user_id': 'ada',
-  'text': 'The Analytical Engine weaves algebraical patterns just as the Jacquard loom weaves flowers and leaves.'
-})
-  .then(function() {
-    console.log('RSVP succeeded');
-  })
-  .catch(function(error) {
-    console.log('RSVP failed');
-  }); */
