@@ -1,9 +1,10 @@
 /* less vars */
-@link-color:    #986630;
-@light-bg:      #f9f9f9;
-@dark-bg:       #f7f4f2;
+@link-color:    #4a7822;
+@light-bg:      #ffffff;
+@dark-bg:       #f4fef4;
 
 @mobile-bp:     ~"only screen and (max-width: 969px)";
+@small-bp:     ~"only screen and (max-width: 600px)";
 
 
 
@@ -53,8 +54,8 @@ a, a:visited, a:active {
     }
 
     .copybox {
-        background-color: #181818;
-        color: #ffffff;
+        background-color: #f5fef5;
+        color: #184418;
         max-width: 50%;
         text-align: center;
         opacity: .965;
@@ -68,10 +69,10 @@ a, a:visited, a:active {
         }
     }
     .copy {
-        margin: 12px 30px;
+        margin: 16px 33px;
         display: inline-block;
         text-align: left;
-        line-height: 38px;
+        line-height: 42px;
     }
 }
 
@@ -99,14 +100,14 @@ a, a:visited, a:active {
 .section {
     width: 100%;
     max-width: 100%;
-    padding: 93px 0 53px;
+    padding: 92px 0 52px;
     background-color: @light-bg;
 }
 .section--dark {
     background-color: @dark-bg;
 }
 .spacer--vertical {
-    height: 36px;
+    height: 56px;
 
     @media @mobile-bp {
         height: 0px;
@@ -123,14 +124,20 @@ a, a:visited, a:active {
 }
 .cell--extraPadding {
     margin-left: 4%;
-    padding-top: 64px;
+    padding-top: 45px;
 
     @media @mobile-bp {
         margin-left: 0;
-        padding-top: 37px;
+        padding-top: 27px;
+    }
+
+    @media @small-bp {
+      padding-top: 17px;
     }
 }
-
+.cell--center {
+  text-align: center;
+}
 
 
 
@@ -165,6 +172,11 @@ a, a:visited, a:active {
     @media @mobile-bp {
         font-size: 20px;
         line-height: 30px;
+    }
+
+    @media @small-bp {
+      font-size: 16px;
+      line-height: 27px;
     }
 }
 .justify {
@@ -207,6 +219,7 @@ a, a:visited, a:active {
     position: absolute;
     right: 28px;
     top: 21px;
+    display: none;
 
     @media @mobile-bp {
         display: none;
@@ -283,7 +296,10 @@ input[disabled] {
     box-shadow: inset 0px 0px 4px 3px rgba(255,255,255,.83);
     text-shadow: 0px -1px 0px rgba(0,0,0,.46), 0px 1px 0px rgba(255,255,255,.99);
 }
-
+button.cta {
+  display: block;
+  margin: 0 auto .7em;
+}
 
 
 
@@ -300,5 +316,10 @@ input[disabled] {
     background-color: #dae7d9;
 }
 .messageDiv.messageDiv--hide {
-visibility: hidden;
+  visibility: hidden;
+}
+.hide-on-small {
+  @media @small-bp {
+    display: none;
+  }
 }
