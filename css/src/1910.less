@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, .subtitle, p {
     font-size: 34.6px;
 }
 .h1 {
-    font-size: 35.7px;
+    font-size: 41.7px;
     letter-spacing: 1.05px;
 }
 a, a:visited, a:active {
@@ -153,13 +153,14 @@ a, a:visited, a:active {
     font-family: 'Arbutus Slab', serif;
 }
 .typeface--secondary {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Paytone One', sans-serif;
 }
 .typeface--headline {
     font-family: 'Pacifico', sans-serif;
 }
 .typeface--italic {
     font-style: italic;
+    font-family: "Georgia", serif;
 }
 .typeface--small {
     font-size: 16.8px;
@@ -187,6 +188,24 @@ a, a:visited, a:active {
     }
 }
 
+.center-mobile {
+  @media @mobile-bp {
+    text-align: center;
+  }
+}
+
+.push-1 {
+  padding-left: 1em;
+  @media @mobile-bp {
+    padding-left: 0;
+  }
+}
+.push-2 {
+  padding-left: 4em;
+  @media @mobile-bp {
+    padding-left: 0;
+  }
+}
 
 
 
@@ -242,7 +261,7 @@ a, a:visited, a:active {
   border: 1px solid #dcdcdc;
   line-height: 48.7px;
   font-size: 20.5px;
-  font-family: 'playfair display';
+  font-family: 'Paytone One', sans-serif;
   font-style: italic;
   box-shadow: inset 0px 2px 2px rgba(0, 0, 0, 0.1);
   opacity: 0.96;
@@ -297,6 +316,7 @@ input[disabled] {
     text-shadow: 0px -1px 0px rgba(0,0,0,.46), 0px 1px 0px rgba(255,255,255,.99);
 }
 button.cta {
+  border: 0;
   display: block;
   margin: 0 auto .7em;
 }

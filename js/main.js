@@ -15,6 +15,10 @@ $(document).ready( function() {
             $(".messageDiv").html("Please fill out all fields").removeClass("messageDiv--hide");
         }
     });
+
+    $("#donateLink").click( function() {
+      window.location.href = 'https://www.weareplannedparenthood.org/onlineactions/2U7UN1iNhESWUfDs4gDPNg2?t=true&ttype=2&r=false';
+    });
 });
 
 // submit action
